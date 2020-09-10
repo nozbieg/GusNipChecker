@@ -45,6 +45,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\GusKey.cs" />
+    <Compile Include="Classes\SerializeModel.cs" />
     <Compile Include="Connected Services\UslugaBIR\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
