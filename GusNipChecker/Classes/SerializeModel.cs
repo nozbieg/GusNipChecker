@@ -30,6 +30,7 @@ namespace GusNipChecker.Classes
                 this.daneField = value;
             }
         }
+
     }
 
     /// <remarks/>
@@ -38,6 +39,10 @@ namespace GusNipChecker.Classes
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     public partial class rootDane
     {
+        public void Show()
+        {
+            Console.WriteLine("Nazwa: " + this.Nazwa);
+        }
 
         private uint regonField;
 
@@ -263,9 +268,6 @@ namespace GusNipChecker.Classes
                 this.dataZakonczeniaDzialalnosciField = value;
             }
         }
-        public void Show()
-        {
-
-        }
+        
     }
 }

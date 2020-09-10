@@ -36,12 +36,13 @@ namespace GusNipChecker
             {
                 retDeserialized = (root)serializer.Deserialize(reader);
             }
-
+            int i = 1;
             foreach (var x in retDeserialized.dane)
-            {
-                Console.WriteLine(x.Nazwa);
-                Console.WriteLine(x.Nip);
-                Console.WriteLine(x.Miejscowosc);
+            {        
+                Console.Write(i+". ");
+                Console.WriteLine("Nazwa: " +x.Nazwa);
+                Console.WriteLine("Nip : " +x.Nip);
+                i++;
             }
 
         }
@@ -51,15 +52,11 @@ namespace GusNipChecker
             GusKey apiKey = new GusKey();
             WSHttpBinding myBinding = Binding();
             EndpointAddress ea = new EndpointAddress("https://wyszukiwarkaregontest.stat.gov.pl/wsBIR/UslugaBIRzewnPubl.svc");
-
             UslugaBIRzewnPublClient cc = new UslugaBIRzewnPublClient(myBinding, ea);
             cc.Open();
-
             string sid = cc.Zaloguj(apiKey.Key);
             Console.WriteLine("Zaloguj " + sid);
-
             OperationContextScope scope = new OperationContextScope(cc.InnerChannel);
-
             HttpRequestMessageProperty reqProps = new HttpRequestMessageProperty();
             reqProps.Headers.Add("sid", sid);
             OperationContext.Current.OutgoingMessageProperties[HttpRequestMessageProperty.Name] = reqProps;
@@ -68,7 +65,6 @@ namespace GusNipChecker
 
         public static WSHttpBinding Binding()
         {
-            //create binding
             WSHttpBinding myBinding = new WSHttpBinding();
             myBinding.Security.Mode = SecurityMode.Transport;
             myBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
@@ -79,7 +75,8 @@ namespace GusNipChecker
 
         static void Main(string[] args)
         {
-
+            CheckNIP();
+            Console.ReadLine();
         }
     }
 }
