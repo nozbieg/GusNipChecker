@@ -12,7 +12,7 @@ namespace GusNipChecker.Classes
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
     [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
-    public partial class root
+    public partial class root //Model danych do serializacji wygenerowany za pomocą XML'a przychodzącego w odpowiedzi na DaneSzukajRequest
     {
 
         private rootDane[] daneField;

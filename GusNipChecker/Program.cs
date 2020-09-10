@@ -14,7 +14,7 @@ namespace GusNipChecker
 {
     class Program
     {
-        public static void CheckNIP()
+        public static void CheckNIP() //Metoda sprawdzająca nip lub kilka nipów w bazie danych. Korzysta z otwartej sesji w metodzi ConBIR
         {
             UslugaBIRzewnPublClient cc = ConBIR();
             ParametryWyszukiwania numerNip = new ParametryWyszukiwania();
@@ -25,7 +25,7 @@ namespace GusNipChecker
             cc.Close();
         }
 
-        public static void SerializeModule(string ret)
+        public static void SerializeModule(string ret) //Metoda Deserialuzująca dane do obiektów i przygotowująca do wprowadzenia do bazy danych + Wyświetla Nazwe i nip w konsoli
         {
             XmlRootAttribute xRoot = new XmlRootAttribute();
             xRoot.ElementName = "root";
@@ -47,7 +47,7 @@ namespace GusNipChecker
 
         }
 
-        public static UslugaBIRzewnPublClient ConBIR()
+        public static UslugaBIRzewnPublClient ConBIR() //Metoda Logująca się do GUSu i ustawiająca sid jako header komunikatów
         {
             GusKey apiKey = new GusKey();
             WSHttpBinding myBinding = Binding();

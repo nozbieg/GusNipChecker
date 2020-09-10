@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GusNipChecker.Classes
 {
-    class GusKey
+    class GusKey //klasa trzymająca dane klucza dostępowego do Api
     {
         public string Key { get; set; }
         public GusKey()
